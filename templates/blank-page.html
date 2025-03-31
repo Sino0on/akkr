@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ page.title }}{% endblock %}
+
+
+{% block content %}
+
+<!-- Page Banner Start -->
+        <div class="section page-banner-section" style="background-image: url({% static 'assets/images/bg/banner-img.jpg' %});     background-position: center top; padding-top: 50px;
+    padding-bottom: 50px;">
+            <div class="container">
+                <!-- Page Banner Wrapper Start -->
+                <div class="page-banner-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Page Banner Content Start -->
+                            <div class="page-banner">
+                                <h2 class="title" style="font-size: 27px;">{{ page.mini_title }} {{ page.title }}</h2>
+<!--                                <h2 class="title" style="font-size: 27px;"></h2>-->
+
+                            </div>
+                            <!-- Page Banner Content End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Page Banner Wrapper End -->
+            </div>
+        </div>
+        <!-- Page Banner End -->
+<div class="section blog-standard-section section-padding" style="    padding-top: 50px;">
+            <div class="container">
+                <!-- Blog Wrapper Start -->
+                <div class="blog-details-wrapper">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Blog Details Post Start -->
+                            <div class="blog-details-post">
+                                <!-- Single Blog Post Start -->
+                                <div class="single-blog-post">
+
+                                    <!-- Blog Image End -->
+                                    <!-- Blog Details Content Start -->
+                                    <div class="blog-details-content">
+                                        <!-- Blog Blockquote End -->
+                                        <!-- Blog Details Text Start -->
+                                        <div class="blog-details-text">
+<!--                                            <h4 class="title">{{ page.title }}</h4>-->
+                                            <p style="color: black;">{{ page.description|safe }}</p>
+                                        </div>
+                                        <!-- Blog Details Text End -->
+
+                                        <!-- Blog Comments Reply End -->
+                                    </div>
+                                    <!-- Blog Details Content End -->
+                                </div>
+                                <!-- Single Blog Post End -->
+
+                            </div>
+                            <!-- Blog Details Post End -->
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- Blog Sidebar Start -->
+                            <div class="blog-sidebar">
+
+                                <!-- Sidebar Widget End -->
+                                <!-- Sidebar Widget Start -->
+                                <div class="sidebar-widget">
+                                    {% for i in page.images_page.all %}
+                                    <div class="sidebar-image">
+                                        <img src="{{ i.image.url }}" alt="">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- Sidebar Widget End -->
+                            </div>
+                            <!-- Blog Sidebar End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Wrapper End -->
+            </div>
+        </div>
+
+{% endblock %}

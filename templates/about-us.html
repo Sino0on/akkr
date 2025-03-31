@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}О нас{% endblock %}
+{% block content %}
+
+        <!-- Report Career Section Start -->
+        <div class="section report-career-2-section section-padding-02">
+            <div class="container">
+                <!-- Report Career Wrapper Start -->
+                <div class="report-career-2-wrapper">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-6">
+                            <!-- Report Career Image Start -->
+                            <div class="report-career-2-img-wrapper">
+                                <div class="report-career-2-img-sm">
+                                    <div class="report-career-2-img img-1">
+                                        <img src="{{ about.image1.url }}" alt="">
+                                    </div>
+                                    <div class="report-career-2-img img-2">
+                                        <img src="{{ about.image2.url }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="report-career-2-img-big">
+                                    <img src="{{ about.image3.url }}" alt="">
+                                </div>
+                            </div>
+                            <!-- Report Career Image End -->
+                        </div>
+                        <div class="col-xl-5 col-lg-6 d-lg-flex align-items-center">
+                            <!-- Report Career Content Start -->
+                            <div class="report-career-content report-career-2-content">
+                                <div class="section-title section-devider">
+                                    <h2 class="title">{{ about.title }}</h2>
+                                </div>
+                                <p>{{ about.description|safe }}</p>
+                                <!-- Report Career-3 Wrapper Start -->
+
+                                <!-- Report Career-3 Wrapper End -->
+                            </div>
+                            <!-- Report Career Content End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Report Career Wrapper End -->
+            </div>
+        </div>
+        <!-- Report Career Section End -->
+
+        <!-- About Section Start -->
+        <div class="section about-section section-padding">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="about-content">
+                                <div class="section-title section-devider">
+                                    <h2 class="title">{{ about.title2 }}</h2>
+                                </div>
+                                <p>{{ about.description2|safe }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Section End -->
+
+
+        <!-- Team Start -->
+        <div class="section team-2-section section-padding-02">
+            <div class="container">
+                <!-- Team Wrapper Start -->
+                <div class="team-wrapper">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <!-- Section Title Start -->
+                            <div class="section-title section-devider">
+                                <h2 class="title">Наши сотрудники</h2>
+                            </div>
+                            <!-- Section Title End -->
+                        </div>
+
+                    </div>
+                    <!-- Team Item Wrapper Start -->
+                    <div class="team-2-item-wrapper about-team-wrap">
+                        <div class="row">
+                            {% for member in members %}
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <!-- Single Team Start -->
+                                <div class="single-team">
+                                    <div class="team-img">
+                                        <a href="team-single.html"><img src="{{ member.photo.url }}" alt="team"></a>
+
+
+                                    </div>
+                                    <div class="team-content">
+                                        <div class="team-name-deg">
+                                            <h5 class="name"><a href="#">{{ member.name }}</a></h5>
+                                            <span class="team-deg">{{ member.role }}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Single Team End -->
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- Team Item Wrapper End -->
+                </div>
+                <!-- Team Wrapper End -->
+            </div>
+        </div>
+        <!-- Team End -->
+
+{% endblock %}

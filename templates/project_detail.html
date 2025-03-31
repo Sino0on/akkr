@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ page.title }}{% endblock %}
+
+
+{% block content %}
+
+        <!-- Team Profile Section Start -->
+        <div class="section team-profile-section section-padding-02">
+            <div class="container">
+
+                <!-- Team Profile Description Start -->
+                <div class="team-profile-description">
+                    <h3 class="title">{{ project.title }}</h3>
+                    {{ project.description|safe }}
+                </div>
+                <!-- Team Profile Description End -->
+            </div>
+        </div>
+        <!-- Team Profile Section End -->
+
+
+{% endblock %}

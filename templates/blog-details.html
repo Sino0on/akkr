@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ news.title }}{% endblock %}
+
+{% block content %}
+
+        <!-- Blog Start -->
+        <div class="section blog-standard-section section-padding">
+            <div class="container">
+                <!-- Blog Wrapper Start -->
+                <div class="blog-details-wrapper">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Blog Details Post Start -->
+                            <div class="blog-details-post">
+                                <!-- Single Blog Post Start -->
+                                <div class="single-blog-post">
+                                    <!-- Blog Image Start -->
+                                    <div class="blog-post-image">
+                                        <a href="#"><img src="{{ news.image.url }}" alt="blog"></a>
+                                    </div>
+                                    <!-- Blog Image End -->
+                                    <!-- Blog Details Content Start -->
+                                    <div class="blog-details-content">
+
+                                        <!-- Blog Details Text Start -->
+                                        <div class="blog-details-text">
+                                            <pre>{{ news.content|safe }}</pre>
+                                        </div>
+
+                                    </div>
+                                    <!-- Blog Details Content End -->
+
+                                </div>
+                                <!-- Single Blog Post End -->
+
+                            </div>
+                            <!-- Blog Details Post End -->
+                        </div>
+                        <div class="col-lg-4">
+                            <!-- Blog Sidebar Start -->
+                            <div class="blog-sidebar">
+
+                                <!-- Sidebar Widget End -->
+                                <!-- Sidebar Widget Start -->
+                                <div class="sidebar-widget">
+                                    {% for i in news.images_page.all %}
+                                    <div class="sidebar-image">
+                                        <img src="{{ i.image.url }}" alt="">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- Sidebar Widget End -->
+                            </div>
+                            <!-- Blog Sidebar End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Wrapper End -->
+            </div>
+        </div>
+        <!-- Blog End -->
+{% endblock %}

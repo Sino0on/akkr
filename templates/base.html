@@ -1,0 +1,364 @@
+<!doctype html>
+{% load static %}
+
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo-akkr.svg' %}">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/flaticon.css' %}">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/aos.css' %}">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css"> -->
+
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+
+        <!-- Preloader start -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="ytp-spinner">
+                    <div class="ytp-spinner-container">
+                        <div class="ytp-spinner-rotator">
+                            <div class="ytp-spinner-left">
+                                <div class="ytp-spinner-circle"></div>
+                            </div>
+                            <div class="ytp-spinner-right">
+                                <div class="ytp-spinner-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Header Start  -->
+        <div id="header" class="header section">
+            <div class="container">
+
+                <!-- Header Wrapper Start  -->
+                <div class="header-wrapper">
+
+                    <!-- Header Logo Start -->
+                    <div class="header-container">
+                        <div class="header-logo" >
+                            <a href="/"  style="    max-width: 100%;     padding-right: 25px;"><img src="{% static 'assets/images/logo-akkr.svg' %}" alt=""></a>
+    <!--                        <a href="/"><img style="width: 270px;" src="{% static 'assets/images/logo2.png' %}" alt=""></a>-->
+                        </div>
+                        <div class="header-text">
+                            <h1>АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА</h1>
+<!--                            <p>Описание или слоган</p>-->
+                          </div>
+                    </div>
+                    <!-- Header Logo End -->
+
+                    <!-- Header Right Start -->
+                    <div class="header-right">
+
+                        <!-- Header Menu Start -->
+                        <div class="header-menu d-none d-lg-block">
+                            <ul class="main-menu">
+                                <li class="active-menu">
+                                    <a href="{% url 'home' %}">Главная</a>
+
+<!--                                    <ul class="sub-menu">-->
+<!--                                        <li class="active"><a href="/">Home Default</a></li>-->
+<!--                                        <li><a href="index-2.html">Online Academy</a></li>-->
+<!--                                        <li>-->
+<!--                                            <a href="index-3.html">Online Courses</a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a href="index-4.html">Learning Coach</a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a href="index-5.html">Home Classic</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+                                </li>
+                                <li><a href="{% url 'about-us' %}">О нас</a></li>
+                                <li><a href="{% url 'news' %}">Новости</a>
+                                </li>
+                                <li><a href="#">Услуги</a>
+                                    <ul class="sub-menu">
+                                        {% for page in more_pages %}
+                                        <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'projects' %}">Проекты</a>
+                                    <ul class="sub-menu">
+                                        {% for i in projects %}
+                                        <li><a href="{% url 'project_detail' i.slug %}">{{ i.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li><a href="#">Публикации</a>
+                                    <ul class="sub-menu">
+                                        {% for page in pages %}
+                                        <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li><a href="#">Обучение</a>
+                                </li>
+                                <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+
+
+
+                            </ul>
+                        </div>
+                        <!-- Header Menu End -->
+                        <div class="header-toggle d-lg-none">
+                            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <!-- Header Right End -->
+                </div>
+                <!-- Header Wrapper End -->
+
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" id="offcanvasMenu">
+
+            <div class="offcanvas-header">
+                <!-- Offcanvas Logo Start -->
+                <div class="offcanvas-logo">
+                    <a href="#"><img src="{% static 'assets/images/logo.png' %}" alt=""></a>
+                </div>
+                <!-- Offcanvas Logo End -->
+                <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <div class="offcanvas-menu">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a href="{% url 'home' %}">Главная</a>
+
+                        </li>
+                        <li><a href="{% url 'about-us' %}">О нас</a></li>
+                        <li><a href="{% url 'news' %}">Новости</a>
+                        </li>
+                        <li><a href="#">17 ЦУР 🇰🇬</a>
+                            <ul class="sub-menu">
+                                {% for page in more_pages %}
+                                <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'projects' %}">Проекты</a>
+                            <ul class="sub-menu">
+                                {% for i in projects %}
+                                <li><a href="{% url 'project_detail' i.slug %}">{{ i.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="#">Публикации</a>
+                            <ul class="sub-menu">
+                                {% for page in pages %}
+                                <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="#">Обучение</a></li>
+                        <li><a href="{% url 'application' %}">Оставить заявку</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Shopping Cart Start -->
+        <div class="shopping-cart">
+
+            <div class="shopping-cart-inner">
+                <div class="shopping-cart-content">
+                    <p class="empty-message">No products in the cart.</p>
+                </div>
+            </div>
+
+            <div class="body-overlay"></div>
+        </div>
+        <!-- Shopping Cart End -->
+
+{% block content %}
+{% endblock %}
+
+        <!-- Footer Start -->
+        <div class="footer-section section">
+            <div class="container">
+
+                <!-- Footer Widget Wrapper Start -->
+                <div class="footer-widget-wrapper" style="    padding-top: 0px;
+    padding-bottom: 0px;">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <!-- Footer Widget Start -->
+                            <div class="footer-widget widget-about">
+                                <a class="footer-logo" href="/"><img style="    max-width: 60%;"  src="{% static 'assets/images/logo-akkr.svg' %}" alt="Logo"></a>
+
+                                <div class="widget-info">
+                                    <p>АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА</p>
+
+                                    <ul class="social">
+                                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-github"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <!-- Footer Widget Start -->
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Полезные ссылки</h4>
+
+                                <div class="widget-link">
+                                    <ul class="link">
+                                        <li><a href="{% url 'about-us' %}">О нас</a></li>
+                                        <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <!-- Footer Widget Start -->
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Дополнительные страницы</h4>
+
+                                <div class="widget-link">
+                                    <ul class="link">
+                                        {% for page in pages %}
+                                        <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
+                                        {% endfor %}
+                                        <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Footer Widget End -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <!-- Footer Widget Start -->
+                            <div class="footer-widget">
+                                <h4 class="footer-widget-title">Контакты</h4>
+
+                                <ul class="widget-info">
+                                    <li>
+                                        <div class="media">
+                                            <i class="flaticon-location-pin"></i>
+                                            <div class="media-body">
+                                                <a href="{{ contacts.link_address }}"><span>{{ contacts.address }}</span></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <i class="fas fa-phone-volume"></i>
+                                            <div class="media-body">
+                                                <a href="tel:{{ contacts.phone }}">{{ contacts.phone }}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <i class="flaticon-email"></i>
+                                            <div class="media-body">
+                                                <a href="mail:{{ contacts.email }}">{{ contacts.email }}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Footer Widget End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Widget Wrapper End -->
+
+                <!-- Footer Copyright End -->
+                <div class="footer-copyright">
+                    <div class="copyright-wrapper">
+                        <div class="copyright-design">
+                            <p>Разработано <a href="https:t.me/Sino0on"> Sino0on</a></p>
+                        </div>
+                        <div class="copyright-text">
+                            <p>&copy; Copyright 2025 </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Copyright End -->
+
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top End -->
+        <button class="back-btn" id="backBtn"><i class="flaticon-left-arrow-1"></i></button>
+        <!-- Back to Top End -->
+
+    </div>
+
+    <!-- JS
+    ============================================ -->
+    <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/js/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins JS -->
+    <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/aos.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/appear.min.js' %}"></script>
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

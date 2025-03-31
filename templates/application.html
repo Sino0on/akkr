@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ page.title }}{% endblock %}
+
+
+{% block content %}
+<div class="section contact-form-section section-padding-02">
+            <div class="container">
+                <!-- Contact Form Wrapper Start -->
+                <div class="contact-form-wrapper">
+                    <div class="row" style="justify-content: center;">
+<!--                        <div class="col-lg-7">-->
+<!--                            <div class="contact-map">-->
+<!--                                <iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=New%20York%20University%20&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" title="New York University" aria-label="New York University" frameborder="0"></iframe>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="col-lg-5">
+                            <!-- Contact Form Start -->
+                            <!-- templates/contact_form.html -->
+                            <div class="contact-form">
+                                <h4 class="title">Оставить заявку</h4>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="single-form">
+                                                {{ form.name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single-form">
+                                                {{ form.email }}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single-form">
+                                                {{ form.phone }}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single-form">
+                                                {{ form.message }}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="contact-btn">
+                                                <button class="btn" type="submit">Отправить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Contact Form End -->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Contact Form Wrapper End -->
+            </div>
+        </div>
+{% endblock %}

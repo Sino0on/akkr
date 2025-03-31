@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Проекты{% endblock %}
+{% block content %}
+
+        <!-- Courses Start -->
+        <div class="section top-courses-3-section courses-grid-section">
+            <div class="container">
+                <div class="top-courses-wrapper">
+                    <!-- Section Title Start -->
+                    <div class="section-title text-center">
+                        <h2 class="title">Наши проекты</h2>
+                    </div>
+                    <!-- Section Title End -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-md-12">
+                            <div class="top-courses-filter text-center">
+                                <ul>
+                                    {% for i in categories %}
+                                    <li><a href="?category={{ i.id }}">{{ i.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Courses Wrapper Start -->
+                    <div class="top-courses-content-wrapper">
+                        <div class="row grid">
+                            {% for project in projects %}
+                            <div class="col-lg-3 col-sm-6 course-health course-cooking">
+                                <!-- Single Courses Start -->
+                                <div class="single-course">
+                                    <!-- Courses Image Start -->
+                                    <div class="courses-image">
+                                        <a href="{% url 'project_detail' project.slug %}"><img src="{{ project.image.url }}" alt="Courses"></a>
+
+                                    </div>
+                                    <!-- Courses Image End -->
+                                    <!-- Courses Content Start -->
+                                    <div class="courses-content">
+                                        <h3 class="title"><a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a></h3>
+                                    </div>
+                                    <!-- Courses Content End -->
+                                    <!-- Courses Meta Start -->
+
+                                    <!-- Courses Meta End -->
+
+                                </div>
+                                <!-- Single Courses End -->
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <!-- Courses Wrapper End -->
+
+                    <!-- Gostudy Pagination Start -->
+                    {% if is_paginated %}
+                    <div class="gostudy-pagination courses-grid-pagination">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                    <i class="flaticon-left-arrow"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% for num in page_obj.paginator.page_range %}
+                            {% if num == page_obj.number %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                            {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                    <i class="flaticon-right-arrow"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <!-- Gostudy Pagination End -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Courses End -->
+
+
+{% endblock %}
