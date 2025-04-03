@@ -7515,9 +7515,9 @@ select {
 }
 
 .report-career-content p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
-  color: #686f7a;
+  color: #000000;
   padding-top: 25px;
 }
 
@@ -7540,9 +7540,9 @@ select {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
-  color: #686f7a;
+  color: #000000;
   line-height: 38px;
 }
 
