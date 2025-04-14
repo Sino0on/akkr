@@ -46,6 +46,43 @@
                                         <div class="blog-details-text">
 <!--                                            <h4 class="title">{{ page.title }}</h4>-->
                                             <p style="color: black;">{{ page.description|safe }}</p>
+
+                                            <br>
+                                            <br>
+                                            <div style="
+                                            display: flex;
+                                            flex-wrap: wrap;
+                                            justify-content: center;
+                                            gap: 24px;
+                                            max-width: 1000px;
+                                            margin: 0 auto;
+                                              ">
+                                            {% for i in page.images_page.all %}
+                                            {% if i.file_type == 'file' %}
+                                            <br>
+                                              <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
+                                                <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">
+                                                    {{ i.name }}</h2>
+<!--                                                <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Нажмите, чтобы скачать</p>-->
+                                                <a href="{{ i.image.url }}"  style="
+                                                  display: inline-block;
+                                                  padding: 12px 24px;
+                                                  background-color: #2563eb;
+                                                  color: #ffffff;
+                                                  font-size: 14px;
+                                                  font-weight: 600;
+                                                  text-decoration: none;
+                                                  border-radius: 8px;
+                                                  transition: background-color 0.3s ease;
+                                                " onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
+                                                  📄 Скачать файл
+                                                </a>
+                                              </div>
+                                            <br>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                            </div>
                                         </div>
                                         <!-- Blog Details Text End -->
 
@@ -66,9 +103,11 @@
                                 <!-- Sidebar Widget Start -->
                                 <div class="sidebar-widget">
                                     {% for i in page.images_page.all %}
+                                    {% if i.file_type == 'image' %}
                                     <div class="sidebar-image">
                                         <img src="{{ i.image.url }}" alt="">
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 <!-- Sidebar Widget End -->

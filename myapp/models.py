@@ -291,9 +291,17 @@ class MorePage(models.Model):
         ordering = ['created_at']
 
 
+choise = (
+    ('image', 'image'),
+    ('file', 'file'),
+)
+
+
 class PageImage(models.Model):
     image = models.FileField(upload_to='images/')
     page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='images_page')
+    name = models.CharField(max_length=255, blank=True, null=True)
+    file_type = models.CharField(max_length=123, choices=choise, blank=True, default='image')
 
     def __str__(self):
         return f'{self.page}'
