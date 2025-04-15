@@ -178,14 +178,16 @@
                     <style>
 
     .gallery-wrapper {
-      overflow: hidden;
-      cursor: grab;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
       padding: 40px;
       background-color: #fff;
+      cursor: grab;
     }
 
     .gallery {
-      display: flex;
+      display: inline-flex;
       gap: 20px;
     }
 
