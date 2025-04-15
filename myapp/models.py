@@ -225,7 +225,8 @@ class AboutUs(SingletonModel):
     image3 = models.FileField(upload_to="images/", verbose_name='Третье изображение')
     title2 = models.CharField(max_length=255, verbose_name='Второе Название')
     description2 = RichTextField(verbose_name='Второе Описание')
-    image4 = models.FileField(upload_to="images/", verbose_name='Четвертое изображение')
+    description3 = RichTextField(verbose_name='Третье Описание', blank=True, null=True)
+    image4 = models.FileField(upload_to="images/", verbose_name='Четвертое изображение', blank=True, null=True)
 
     def __str__(self):
         return "О нас"
@@ -337,4 +338,16 @@ class Application(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
+        ordering = ['-created_at']
+
+
+class GalleryImage(models.Model):
+    title = models.CharField(max_length=123, blank=True, null=True)
+    image = models.FileField(upload_to='gallery')
+    created_at = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.title}'
+
+    class Meta:
         ordering = ['-created_at']

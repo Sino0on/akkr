@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     Sponsor, TeamMember, Document, ProjectCategory, Project,
     NewsCategory, News, PublicationCategory, Publication,
-    ContactMessage, Subscription, Contacts, AboutUs, Page, MorePage, PageImage, MorePageImage, Application
+    ContactMessage, Subscription, Contacts, AboutUs, Page, MorePage, PageImage, MorePageImage, Application, GalleryImage
 )
 
 @admin.register(Sponsor)
@@ -98,6 +98,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
 admin.site.register(Contacts)
 admin.site.register(AboutUs)
+admin.site.register(GalleryImage)
 # admin.site.register(MorePage)
 
 

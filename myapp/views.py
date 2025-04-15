@@ -79,6 +79,7 @@ class AboutUsView(generic.TemplateView):
         context['members'] = TeamMember.objects.all()
         context['projects'] = Project.objects.all()
         context['more_pages'] = MorePage.objects.all()
+        context['gallery'] = GalleryImage.objects.all()
         return context
 
 

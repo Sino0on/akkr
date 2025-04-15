@@ -29,7 +29,41 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f3f4f6;
+      font-family: sans-serif;
+    }
 
+    .gallery-wrapper {
+      overflow: hidden;
+      cursor: grab;
+      padding: 40px;
+      background-color: #fff;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img {
+      height: 100px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover,
+    .gallery img:active {
+      transform: scale(1.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+    }
+  </style>
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css"> -->
