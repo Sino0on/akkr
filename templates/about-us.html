@@ -249,7 +249,9 @@
                             {% for i in gallery %}
                             <div class="photo-card">
                               <img src="{{ i.image.url }}" alt="{{ i.title }}" />
+                                {% if i.title  %}
                               <div class="photo-title">{{ i.title }}</div>
+                                {% endif %}
                             </div>
                          {% endfor %}
                         </div>
