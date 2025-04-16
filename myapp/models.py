@@ -110,6 +110,7 @@ class News(BaseModel):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+        ordering = ['-created_at']
 
     def save(self, *args, **kwargs):
         if not self.slug:
