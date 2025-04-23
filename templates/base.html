@@ -1,6 +1,6 @@
 <!doctype html>
 {% load static %}
-
+{% load i18n %}
 <html class="no-js" lang="en">
 
 <head>
@@ -73,7 +73,7 @@
     <!--                        <a href="/"><img style="width: 270px;" src="{% static 'assets/images/logo2.png' %}" alt=""></a>-->
                         </div>
                         <div class="header-text">
-                            <a href="{% url 'home' %}"><h1>АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА</h1></a>
+                            <a href="{% url 'home' %}"><h1>{% trans 'АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА' %}</h1></a>
 <!--                            <p>Описание или слоган</p>-->
                           </div>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="header-menu d-none d-lg-block">
                             <ul class="main-menu">
                                 <li class="active-menu">
-                                    <a href="{% url 'home' %}">Главная</a>
+                                    <a href="{% url 'home' %}">{% trans 'Главная' %}</a>
 
 <!--                                    <ul class="sub-menu">-->
 <!--                                        <li class="active"><a href="/">Home Default</a></li>-->
@@ -102,35 +102,47 @@
 <!--                                        </li>-->
 <!--                                    </ul>-->
                                 </li>
-                                <li><a href="{% url 'about-us' %}">О нас</a></li>
-                                <li><a href="{% url 'news' %}">Новости</a>
+                                <li><a href="{% url 'about-us' %}">{% trans 'О нас' %}</a></li>
+                                <li><a href="{% url 'news' %}">{% trans 'Новости' %}</a>
                                 </li>
-                                <li><a href="#">Услуги</a>
+                                <li><a href="#">{% trans 'Услуги' %}</a>
                                     <ul class="sub-menu">
                                         {% for page in more_pages %}
                                         <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
-                                <li><a href="{% url 'projects' %}">Проекты</a>
+                                <li><a href="{% url 'projects' %}">{% trans 'Проекты' %}</a>
                                     <ul class="sub-menu">
                                         {% for i in projects %}
                                         <li><a href="{% url 'project_detail' i.slug %}">{{ i.title }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
-                                <li><a href="#">Документы агентства</a>
+                                <li><a href="#">{% trans 'Документы агентства' %}</a>
                                     <ul class="sub-menu">
                                         {% for page in pages %}
                                         <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
-                                <li><a href="#">Обучение</a>
+                                <li><a href="#">{% trans 'Обучение' %}</a>
                                 </li>
-                                <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+                                <li><a href="{% url 'application' %}">{% trans 'Оставить заявку' %}</a></li>
+                                <li>
+                                <form method="post" action="{% url 'set_language' %}">
+                                    {% csrf_token %}
+                                    <div class="language-selector">
+                                        <select name="language" onchange="this.form.submit()">
+                                            {% get_current_language as LANGUAGE_CODE %}
 
-
+                                            <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans 'Русский' %}</option>
+<!--                                            <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{{LANGUAGE_CODE}}</option>-->
+                                            <option value="ky" {% if LANGUAGE_CODE == 'ky' %}selected{% endif %}>{% trans 'Кыргызский' %}</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                </li>
 
                             </ul>
                         </div>
@@ -166,35 +178,49 @@
                 <div class="offcanvas-menu">
                     <ul class="main-menu">
                         <li class="active-menu">
-                            <a href="{% url 'home' %}">Главная</a>
+                            <a href="{% url 'home' %}">{% trans 'Главная' %}</a>
 
                         </li>
-                        <li><a href="{% url 'about-us' %}">О нас</a></li>
-                        <li><a href="{% url 'news' %}">Новости</a>
+                        <li><a href="{% url 'about-us' %}">{% trans 'О нас' %}</a></li>
+                        <li><a href="{% url 'news' %}">{% trans 'Новости' %}</a>
                         </li>
-                        <li><a href="#">17 ЦУР 🇰🇬</a>
-                            <ul class="sub-menu">
-                                {% for page in more_pages %}
-                                <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'projects' %}">Проекты</a>
+<!--                        <li><a href="#">17 ЦУР 🇰🇬</a>-->
+<!--                            <ul class="sub-menu">-->
+<!--                                {% for page in more_pages %}-->
+<!--                                <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>-->
+<!--                                {% endfor %}-->
+<!--                            </ul>-->
+<!--                        </li>-->
+                        <li><a href="{% url 'projects' %}">{% trans 'Проекты' %}</a>
                             <ul class="sub-menu">
                                 {% for i in projects %}
                                 <li><a href="{% url 'project_detail' i.slug %}">{{ i.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="#">Публикации</a>
+                        <li><a href="#">{% trans 'Публикации' %}</a>
                             <ul class="sub-menu">
                                 {% for page in pages %}
                                 <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="#">Обучение</a></li>
-                        <li><a href="{% url 'application' %}">Оставить заявку</a>
+                        <li><a href="#">{% trans 'Обучение' %}</a></li>
+                        <li><a href="{% url 'application' %}">{% trans 'Оставить заявку' %}</a>
+                        </li>
+                        <li>
+                            <form method="post" action="{% url 'set_language' %}">
+                                {% csrf_token %}
+                                <div class="language-selector">
+                                    <select name="language" onchange="this.form.submit()">
+                                        {% get_current_language as LANGUAGE_CODE %}
+
+                                        <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{% trans 'Русский' %}</option>
+<!--                                            <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>{{LANGUAGE_CODE}}</option>-->
+                                        <option value="ky" {% if LANGUAGE_CODE == 'ky' %}selected{% endif %}>{% trans 'Кыргызский' %}</option>
+                                    </select>
+                                </div>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -232,7 +258,7 @@
                                 <a class="footer-logo" href="/"><img style="    max-width: 60%;"  src="{% static 'assets/images/logo-akkr.svg' %}" alt="Logo"></a>
 
                                 <div class="widget-info">
-                                    <p>АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА</p>
+                                    <p>{% trans 'АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА' %}</p>
 
                                     <ul class="social">
                                         <li><a href="#"><i class="fab fa-facebook"></i></a></li>
@@ -246,12 +272,12 @@
                         <div class="col-lg-3 col-sm-6">
                             <!-- Footer Widget Start -->
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">Полезные ссылки</h4>
+                                <h4 class="footer-widget-title">{% trans 'Полезные ссылки' %}</h4>
 
                                 <div class="widget-link">
                                     <ul class="link">
-                                        <li><a href="{% url 'about-us' %}">О нас</a></li>
-                                        <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+                                        <li><a href="{% url 'about-us' %}">{% trans 'О нас' %}</a></li>
+                                        <li><a href="{% url 'application' %}">{% trans 'Оставить заявку' %}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -260,14 +286,14 @@
                         <div class="col-lg-3 col-sm-6">
                             <!-- Footer Widget Start -->
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">Дополнительные страницы</h4>
+                                <h4 class="footer-widget-title">{% trans 'Дополнительные страницы' %}</h4>
 
                                 <div class="widget-link">
                                     <ul class="link">
                                         {% for page in pages %}
                                         <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{% url 'application' %}">Оставить заявку</a></li>
+                                        <li><a href="{% url 'application' %}">{% trans 'Оставить заявку' %}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -276,7 +302,7 @@
                         <div class="col-lg-3 col-sm-6">
                             <!-- Footer Widget Start -->
                             <div class="footer-widget">
-                                <h4 class="footer-widget-title">Контакты</h4>
+                                <h4 class="footer-widget-title">{% trans 'Контакты' %}</h4>
 
                                 <ul class="widget-info">
                                     <li>
@@ -315,7 +341,7 @@
                 <div class="footer-copyright">
                     <div class="copyright-wrapper">
                         <div class="copyright-design">
-                            <p>Разработано <a href="https:t.me/Sino0on"> Sino0on</a></p>
+                            <p>{% trans 'Разработано' %} <a href="https:t.me/Sino0on"> Sino0on</a></p>
                         </div>
                         <div class="copyright-text">
                             <p>&copy; Copyright 2025 </p>

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}Новости{% endblock %}
 {% block content %}
 
@@ -24,7 +25,7 @@
 
                                         <h3 class="title"><a href="{% url 'news_detail' i.slug %}">{{ i.title }}</a></h3>
                                         <p>{{ i.mini_title }}</p>
-                                        <a class="read-more" href="{% url 'news_detail' i.slug %}">Подробнее</a>
+                                        <a class="read-more" href="{% url 'news_detail' i.slug %}">{% trans 'Подробнее' %}</a>
                                     </div>
                                     <!-- Blog Content End -->
                                 </div>
@@ -86,7 +87,7 @@
                                 <div class="sidebar-widget">
                                     <!-- Widget Title Start -->
                                     <div class="widget-title">
-                                        <h3 class="title">Последние новости</h3>
+                                        <h3 class="title">{% trans 'Последние новости' %}</h3>
                                     </div>
                                     <!-- Widget Title End -->
                                     <!-- Widget Recent Post Start -->
@@ -114,7 +115,7 @@
                                 <div class="sidebar-widget">
                                     <!-- Widget Title Start -->
                                     <div class="widget-title">
-                                        <h3 class="title">Категории</h3>
+                                        <h3 class="title">{% trans 'Категории' %}</h3>
                                     </div>
                                     <!-- Widget Title End -->
                                     <!-- Widget Category Start -->

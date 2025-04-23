@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}{{ page.title }}{% endblock %}
 
 
@@ -18,7 +19,7 @@
                             <!-- Contact Form Start -->
                             <!-- templates/contact_form.html -->
                             <div class="contact-form">
-                                <h4 class="title">Оставить заявку</h4>
+                                <h4 class="title">{% trans 'Оставить заявку' %}</h4>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="row">
@@ -44,7 +45,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="contact-btn">
-                                                <button class="btn" type="submit">Отправить</button>
+                                                <button class="btn" type="submit">{% trans 'Отправить' %}</button>
                                             </div>
                                         </div>
                                     </div>

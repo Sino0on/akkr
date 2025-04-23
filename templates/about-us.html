@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}О нас{% endblock %}
 {% block content %}
 
@@ -36,7 +37,7 @@
                                     <div class="team-content">
                                         <div class="team-name-deg">
                                             <h5 class="name"><a href="#">Токсобаева Бактыгуль Асановна</a></h5>
-                                            <span class="team-deg">Директор ААКР, д.э.н., профессор, заслуженный работник образования КР</span>
+                                            <span class="team-deg">{% trans 'Директор ААКР, д.э.н., профессор, заслуженный работник образования КР' %}</span>
                                         </div>
 
                                     </div>
@@ -123,7 +124,7 @@
                                     <div class="team-content">
                                         <div class="team-name-deg">
                                             <h5 class="name"><a href="#">Эсенгулова Нургулья Айтбаевна</a></h5>
-                                            <span class="team-deg">замдиректора ААКР, к.э.н., доцент</span>
+                                            <span class="team-deg">{% trans 'замдиректора ААКР, к.э.н., доцент' %}</span>
                                         </div>
 
                                     </div>
