@@ -45,7 +45,7 @@ msgstr "Жөнөтүү"
 
 #: templates/base.html:76 templates/base.html:261
 msgid "АГЕНСТВО АККРЕДИТАЦИИ <br> КАЧЕСТВА И РЕЙТИНГА"
-msgstr "АКРЕДИТАЦИЯЛЫК АГЕНТТИК <br> САПАТ ЖАНА РЕЙТИНГ"
+msgstr "РЕЙТИНГДИ ЖАНА САПАТТЫ<br> АККРЕДИТТƟƟ АГЕНТТИГИ"
 
 #: templates/base.html:89 templates/base.html:181
 msgid "Главная"
