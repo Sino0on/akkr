@@ -39,7 +39,7 @@ class BannerTranslationOptions(TranslationOptions):
 
 @register(AboutUs)
 class SiteSettingTranslationOptions(TranslationOptions):
-    fields = ('title', 'description', 'description2', 'description3')
+    fields = ('title', 'description', 'description2', 'description3', 'title2')
 
 
 @register(Page)
