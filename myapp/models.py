@@ -298,10 +298,21 @@ choise = (
     ('file', 'file'),
 )
 
+class FileCategoryPage(models.Model):
+    title = models.CharField(max_length=123)
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='page_categories', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.title}'
+
+
+
 
 class PageImage(models.Model):
     image = models.FileField(upload_to='images/')
-    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='images_page')
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='images_page', blank=True, null=True)
+    category = models.ForeignKey(FileCategoryPage, on_delete=models.CASCADE, related_name='images_category', blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
     file_type = models.CharField(max_length=123, choices=choise, blank=True, default='image')
 

@@ -143,10 +143,8 @@ msgstr ""
 "көмөктөшүү билим берүү уюмдары"
 
 #: templates/index.html:100
-#, fuzzy
-#| msgid "Документы агентства"
 msgid "Миссия Агентства"
-msgstr "Агенттиктин документтери"
+msgstr "Агенттиктин миссиясы"
 
 #: templates/index.html:102
 msgid ""
