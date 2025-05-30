@@ -61,3 +61,7 @@ class VacancyTranslationOptions(TranslationOptions):
 class IndustryTranslationOptions(TranslationOptions):
     fields = ('title', )
 
+
+@register(FileCategoryPage)
+class IndustryTranslationOptions(TranslationOptions):
+    fields = ('title', )
