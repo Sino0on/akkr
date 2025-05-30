@@ -59,6 +59,8 @@
                                             margin: 0 auto;
                                               ">
                                             {% for category in filecategories %}
+                                                <br>
+                                                <br>
                                                 <h1>{{ category.title }} </h1>
                                                 {% for i in category.images_category.all %}
                                                 {% if i.file_type == 'file' %}
