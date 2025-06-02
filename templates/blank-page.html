@@ -123,7 +123,12 @@
                                                 <br>
                                                   <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
                                                     <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">
-                                                        {{ i.name }}</h2>
+                                                        {% if i.name %}
+                                                        {{ i.name }}
+                                                        {% else %}
+                                                        {{ page.title }}
+                                                        {% endif %}
+                                                    </h2>
     <!--                                                <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Нажмите, чтобы скачать</p>-->
                                                     <a href="{{ i.image.url }}"  style="
                                                       display: inline-block;
