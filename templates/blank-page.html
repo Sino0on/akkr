@@ -65,7 +65,8 @@
                                                 <h1>{{ category.title }} </h1>
                                                 {% for i in category.images_category.all %}
                                                 {% if i.file_type == 'file' %}
-                                                {% if i.name_ky %}
+                                                {% get_current_language as LANGUAGE_CODE %}
+                                                {% if LANGUAGE_CODE == 'ky' %}
                                                 <br>
                                                   <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
                                                     <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">

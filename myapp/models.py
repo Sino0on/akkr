@@ -327,6 +327,7 @@ class PageImage(models.Model):
 class MorePageImage(models.Model):
     image = models.FileField(upload_to='images/')
     more_page = models.ForeignKey(MorePage, on_delete=models.CASCADE, related_name='images_page')
+    file_type = models.CharField(max_length=123, choices=choise, blank=True, default='image')
 
     def __str__(self):
         return f'{self.more_page}'
