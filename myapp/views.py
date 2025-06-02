@@ -128,7 +128,9 @@ class PageDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = ProjectCategory.objects.all()
-        context['filecategories'] = FileCategoryPage.objects.all()
+        if FileCategoryPage.objects.filter(page=context['page']).exists():
+            context['filecategories'] = FileCategoryPage.objects.filer(page=context['page'])
+        context['filecategories'] = []
         context['projects'] = Project.objects.all()
         context['pages'] = Page.objects.all()
         context['more_pages'] = MorePage.objects.all()
