@@ -108,7 +108,7 @@
                                 <li><a href="#">{% trans 'Услуги' %}</a>
                                     <ul class="sub-menu">
                                         {% for page in more_pages %}
-                                        <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.mini_title }}</a></li>
+                                        <li><a href="{% url 'morepage_detail' page.slug %}">{{ page.title }}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
