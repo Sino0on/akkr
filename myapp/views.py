@@ -118,6 +118,23 @@ class ProjectsListView(generic.ListView):
         context['members'] = TeamMember.objects.all()
         return context
 
+class PublishListView(generic.ListView):
+    model = PublicationCategory
+    queryset = PublicationCategory.objects.all()
+    template_name = 'publication_category.html'
+    paginate_by = 10
+    context_object_name = 'publication_category'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProjectCategory.objects.all()
+        context['projects'] = Project.objects.all()
+        context['more_pages'] = MorePage.objects.all()
+        context['pages'] = Page.objects.all()
+        context['contacts'] = Contacts.load()
+        context['members'] = TeamMember.objects.all()
+        return context
+
 
 class PageDetailView(generic.DetailView):
     model = Page

@@ -119,13 +119,15 @@
                                         {% endfor %}
                                     </ul>
                                 </li>
-                                <li><a href="#">{% trans 'Документы агентства' %}</a>
-                                    <ul class="sub-menu">
-                                        {% for page in pages %}
-                                        <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
-                                        {% endfor %}
-                                    </ul>
+                                {% for i in category_publish %}
+                                <li><a href="{% url 'category_publish_detail' %}">{{ i.name }}</a>
+<!--                                    <ul class="sub-menu">-->
+<!--                                        {% for page in pages %}-->
+<!--                                        <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>-->
+<!--                                        {% endfor %}-->
+<!--                                    </ul>-->
                                 </li>
+                                {% endfor %}
                                 <li><a href="#">{% trans 'Обучение' %}</a>
                                 </li>
                                 <li><a href="{% url 'application' %}">{% trans 'Оставить заявку' %}</a></li>
