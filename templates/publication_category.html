@@ -25,6 +25,37 @@
                         </div>
                     </div>
 
+                    <!-- Courses Wrapper Start -->
+                    <div class="top-courses-content-wrapper">
+                        <div class="row grid">
+                            {% for page in publication_category.publications.all %}
+                            <div class="col-lg-3 col-sm-6 course-health course-cooking">
+                                <!-- Single Courses Start -->
+                                <div class="single-course">
+                                    <!-- Courses Image Start -->
+<!--                                    <div class="courses-image">-->
+<!--                                        <a href="{% url 'project_detail' project.slug %}"><img src="{{ project.image.url }}" alt="Courses"></a>-->
+
+<!--                                    </div>-->
+                                    <!-- Courses Image End -->
+                                    <!-- Courses Content Start -->
+                                    <div class="courses-content">
+                                        <h3 class="title"><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></h3>
+                                    </div>
+                                    <!-- Courses Content End -->
+                                    <!-- Courses Meta Start -->
+
+                                    <!-- Courses Meta End -->
+
+                                </div>
+                                <!-- Single Courses End -->
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <!-- Courses Wrapper End -->
+
                 </div>
 
             </div>

@@ -118,7 +118,7 @@ class ProjectsListView(generic.ListView):
         context['members'] = TeamMember.objects.all()
         return context
 
-class PublishListView(generic.ListView):
+class PublishListView(generic.DetailView):
     model = PublicationCategory
     queryset = PublicationCategory.objects.all()
     template_name = 'publication_category.html'
