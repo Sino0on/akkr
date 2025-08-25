@@ -64,6 +64,7 @@ class NewsDetailView(generic.DetailView):
         context['more_pages'] = MorePage.objects.all()
         context['contacts'] = Contacts.load()
         context['pages'] = Page.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
 
         return context
 
@@ -80,6 +81,7 @@ class AboutUsView(generic.TemplateView):
         context['projects'] = Project.objects.all()
         context['more_pages'] = MorePage.objects.all()
         context['gallery'] = GalleryImage.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         return context
 
 
@@ -98,6 +100,7 @@ class NewsListView(generic.ListView):
         context['projects'] = Project.objects.all()
         context['pages'] = Page.objects.all()
         context['members'] = TeamMember.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         return context
 
 
@@ -115,6 +118,7 @@ class ProjectsListView(generic.ListView):
         context['more_pages'] = MorePage.objects.all()
         context['pages'] = Page.objects.all()
         context['contacts'] = Contacts.load()
+        context['category_publish'] = PublicationCategory.objects.all()
         context['members'] = TeamMember.objects.all()
         return context
 
@@ -133,6 +137,7 @@ class PublishListView(generic.DetailView):
         context['pages'] = Page.objects.all()
         context['contacts'] = Contacts.load()
         context['members'] = TeamMember.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         return context
 
 
@@ -154,6 +159,7 @@ class PageDetailView(generic.DetailView):
         context['more_pages'] = MorePage.objects.all()
         context['contacts'] = Contacts.load()
         context['members'] = TeamMember.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         return context
 
     def get_queryset(self):
@@ -176,6 +182,7 @@ class MorePageDetailView(generic.DetailView):
         context['more_pages'] = MorePage.objects.all()
         context['contacts'] = Contacts.load()
         context['members'] = TeamMember.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         return context
 
     def get_queryset(self):
@@ -194,6 +201,7 @@ class ApplicationCreateView(generic.CreateView):
         context = super().get_context_data(**kwargs)
         context['categories'] = ProjectCategory.objects.all()
         context['projects'] = Project.objects.all()
+        context['category_publish'] = PublicationCategory.objects.all()
         context['pages'] = Page.objects.all()
         context['more_pages'] = MorePage.objects.all()
         context['contacts'] = Contacts.load()

@@ -13,17 +13,17 @@
                         <h2 class="title">{{ publication_category.name }}</h2>
                     </div>
                     <!-- Section Title End -->
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10 col-md-12">
-                            <div class="top-courses-filter text-center">
-                                <ul>
-                                    {% for page in publication_category.publications.all %}
-                                    <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="row justify-content-center">-->
+<!--                        <div class="col-lg-10 col-md-12">-->
+<!--                            <div class="top-courses-filter text-center">-->
+<!--                                <ul>-->
+<!--                                    {% for page in publication_category.publications.all %}-->
+<!--                                    <li><a href="{% url 'page_detail' page.slug %}">{{ page.title }}</a></li>-->
+<!--                                    {% endfor %}-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <!-- Courses Wrapper Start -->
                     <div class="top-courses-content-wrapper">
