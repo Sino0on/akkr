@@ -28,6 +28,76 @@
             </div>
         </div>
         <!-- Page Banner End -->
+<style>
+  /* ====== Сетка файлов ====== */
+  .file-grid{
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  /* 1 колонка — мобайл */
+  .file-grid{ grid-template-columns: 1fr; }
+
+  /* 2 колонки — планшет */
+  @media (min-width: 576px){
+    .file-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* 3 колонки — десктоп */
+  @media (min-width: 992px){
+    .file-grid{ grid-template-columns: repeat(3, 1fr); max-width: 1140px; }
+  }
+
+  /* ====== Карточка ====== */
+  .file-card{
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;          /* единая высота */
+  }
+  .file-title{
+    font-size: 18px;            /* было слишком крупно */
+    line-height: 1.35;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 16px;
+    display: -webkit-box;       /* аккуратное обрезание длинных заголовков */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 3.9em;          /* держим высоту блока с заголовком */
+  }
+  .file-btn{
+    display: inline-block;
+    padding: 10px 16px;         /* компактнее */
+    background: #2563eb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color .2s ease, transform .1s ease;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .file-btn:hover{ background:#1d4ed8; transform: translateY(-1px); }
+
+  /* Заголовки категорий */
+  .file-category{
+    grid-column: 1 / -1;        /* растягиваем заголовок на всю ширину сетки */
+    font-size: 22px;
+    font-weight: 700;
+    margin: 8px 0 6px;
+    color:#0f172a;
+  }
+</style>
+
 <div class="section blog-standard-section section-padding" style="    padding-top: 50px;">
             <div class="container">
                 <!-- Blog Wrapper Start -->
@@ -50,106 +120,47 @@
 
                                             <br>
                                             <br>
-                                            <div style="
-                                            display: flex;
-                                            flex-wrap: wrap;
-                                            justify-content: center;
-                                            gap: 24px;
-                                            max-width: 1000px;
-                                            margin: 0 auto;
-                                              ">
-                                            {% if filecategories %}
-                                            {% for category in filecategories %}
-                                                <br>
-                                                <br>
-                                                <h1>{{ category.title }} </h1>
-                                                {% for i in category.images_category.all %}
-                                                {% if i.file_type == 'file' %}
-                                                {% get_current_language as LANGUAGE_CODE %}
-                                                {% if LANGUAGE_CODE == 'ky' %}
-                                                    {% if i.name_ky %}
-                                                    <br>
-                                                      <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
-                                                        <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">
-                                                            {{ i.name_ky }}</h2>
-        <!--                                                <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Нажмите, чтобы скачать</p>-->
-                                                        <a href="{{ i.image.url }}"  style="
-                                                          display: inline-block;
-                                                          padding: 12px 24px;
-                                                          background-color: #2563eb;
-                                                          color: #ffffff;
-                                                          font-size: 14px;
-                                                          font-weight: 600;
-                                                          text-decoration: none;
-                                                          border-radius: 8px;
-                                                          transition: background-color 0.3s ease;
-                                                        " onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
-                                                          📄 Скачать файл
-                                                        </a>
-                                                      </div>
-                                                    <br>
-                                                    {% endif %}
-                                                {% else %}
-                                                    {% if i.name_ru %}
-                                                    <br>
-                                                      <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
-                                                        <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">
-                                                            {{ i.name_ru }}</h2>
-        <!--                                                <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Нажмите, чтобы скачать</p>-->
-                                                        <a href="{{ i.image.url }}"  style="
-                                                          display: inline-block;
-                                                          padding: 12px 24px;
-                                                          background-color: #2563eb;
-                                                          color: #ffffff;
-                                                          font-size: 14px;
-                                                          font-weight: 600;
-                                                          text-decoration: none;
-                                                          border-radius: 8px;
-                                                          transition: background-color 0.3s ease;
-                                                        " onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
-                                                          📄 Скачать файл
-                                                        </a>
-                                                      </div>
-                                                    <br>
-                                                    {% endif %}
-                                                {% endif %}
-                                                {% endif %}
-                                                {% endfor %}
-                                            {% endfor %}
-                                            {% else %}
-                                                {% for i in page.images_page.all %}
-                                                {% if i.file_type == 'file' %}
+                                            <div class="file-grid">
+  {% if filecategories %}
+    {% for category in filecategories %}
+      <h2 class="file-category">{{ category.title }}</h2>
 
-                                                <br>
-                                                  <div style="background-color: #ffffff; padding: 30px 40px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; max-width: 320px;">
-                                                    <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 20px; color: #111827;">
-                                                        {% if i.name %}
-                                                        {{ i.name }}
-                                                        {% else %}
-                                                        {{ page.title }}
-                                                        {% endif %}
-                                                    </h2>
-    <!--                                                <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">Нажмите, чтобы скачать</p>-->
-                                                    <a href="{{ i.image.url }}"  style="
-                                                      display: inline-block;
-                                                      padding: 12px 24px;
-                                                      background-color: #2563eb;
-                                                      color: #ffffff;
-                                                      font-size: 14px;
-                                                      font-weight: 600;
-                                                      text-decoration: none;
-                                                      border-radius: 8px;
-                                                      transition: background-color 0.3s ease;
-                                                    " onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
-                                                      📄 Скачать файл
-                                                    </a>
-                                                  </div>
-                                                <br>
-                                                {% endif %}
-                                                {% endfor %}
-                                            {% endif %}
+      {% for i in category.images_category.all %}
+        {% if i.file_type == 'file' %}
+          {% get_current_language as LANGUAGE_CODE %}
 
-                                            </div>
+          {# карточка #}
+          <div class="file-card">
+            <h3 class="file-title">
+              {% if LANGUAGE_CODE == 'ky' and i.name_ky %}
+                {{ i.name_ky }}
+              {% elif i.name_ru %}
+                {{ i.name_ru }}
+              {% else %}
+                {{ page.title }}
+              {% endif %}
+            </h3>
+
+            <a class="file-btn" href="{{ i.image.url }}">📄 Скачать файл</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+  {% else %}
+    {% for i in page.images_page.all %}
+      {% if i.file_type == 'file' %}
+        <div class="file-card">
+          <h3 class="file-title">
+            {% if i.name %}{{ i.name }}{% else %}{{ page.title }}{% endif %}
+          </h3>
+          <a class="file-btn" href="{{ i.image.url }}">📄 Скачать файл</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+
                                         </div>
                                         <!-- Blog Details Text End -->
 
